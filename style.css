@@ -45,9 +45,10 @@ header {
 .logoheader1 {
   width: 23rem;
 }
+
 .navegacao-superior-direita {
   display: flex;
-  padding: 2rem;
+  padding: 0.12rem;
   gap: 2rem;
   justify-content: space-between;
   align-items: center;
@@ -60,6 +61,14 @@ header {
     padding: 1rem;
   }
 }
+
+.menu-h {
+  margin: 0 1rem;
+  /* Filtro para converter preto para branco */
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
+    contrast(100%);
+}
+
 .title {
   background-color: #0275b8;
   padding: 1rem;
@@ -135,10 +144,19 @@ a:active {
   color: #0275b8;
 }
 
+@media (max-width: 600px) {
+  .navegacao-superior-direita {
+    display: none;
+  }
+}
+
 @media (min-width: 600px) {
   .panels {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+  }
+  .menu-h {
+    display: none;
   }
 }
 
