@@ -1,92 +1,169 @@
-/* Predefinições do HTML */
+/* PREDEFINIÇÕES DO HTML */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* SELETORES DE ELEMENTOS MENOS ESPECÍFICOS */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
 html {
   font-size: 62.5%;
 }
-
 body {
-  font-family: "Montserrat", sans-serif;
+  position: relative;
+  z-index: 1;
+  font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
   line-height: 1.4;
   color: #303030;
   background: #ffffff;
-  background: radial-gradient(
-    circle,
+  background: linear-gradient(
+    145deg,
     rgba(255, 255, 255, 1) 0%,
-    rgba(124, 124, 124, 0.43) 100%
+    rgba(191, 244, 255, 1) 56%,
+    rgba(112, 231, 255, 0.473) 100%
   );
 }
 
-/* Seletores de ELEMENTO: */
-
+/* SELETORES DE ELEMENTOS MAIS ESPECÍFICOS*/
 h1 {
-  font-size: 3vw;
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
+  padding: 0 2rem;
+  font-size: clamp(1.42rem, 3vw, 2.3rem);
   text-transform: uppercase;
+  font-weight: 500;
 }
-
 header {
   display: flex;
-  flex: 1 1 0;
   justify-content: space-between;
   align-items: center;
-  height: 7.7vh;
   background-color: #053d75;
   color: #ffffff;
-  border-radius: 0 0 0.33rem 0.33rem;
 }
 
-/* Seletores de CLASSE: */
-
+/* SELETORES DE CLASSE: */
 .logoheader1 {
-  width: 19.2vw;
-  /* height: 3.4vh; */
+  width: 23rem;
 }
-
-.header-title {
-  justify-content: flex-end;
-}
-
-.panels {
+.navegacao-superior-direita {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.65rem;
-  margin: 1rem;
+  color: #ffffff;
+  & a {
+    text-decoration: none;
+  }
+  & li {
+    list-style: none;
+    padding: 1rem;
+  }
 }
+.title {
+  background-color: #0275b8;
+  padding: 1rem;
+  border-radius: 0 0 0.33rem 0.33rem;
+  & span {
+    text-transform: lowercase;
+    font-size: 0.92rem;
+    font-weight: 400;
+  }
+}
+.panels {
+  display: grid;
+  /* grid-auto-flow: row; */
+  /* grid-auto-flow: column; */
+  justify-content: space-between;
+  grid-template-columns: repeat(1, 1fr);
+  margin: 0 1rem;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  /* & .panel0 {
+    grid-column: 2 / 2; */
+  position: relative;
+}
+
 .panel {
   display: flex;
+  position: relative;
+  white-space: nowrap;
+  gap: 2rem;
   align-items: flex-start;
   justify-content: space-between;
-  background-color: rgba(134, 134, 134, 0.788);
-  color: #ffffff;
-  width: 31.2rem;
-  height: 16rem;
-  padding: 1rem;
-  border-radius: 1rem;
-  gap: 0.33rem;
-  font-size: clamp(12px, 1.2vw, 16px);
+  background-color: #f5f4f4;
+  color: #053d75;
+  box-shadow: 2px 2px 5px #333;
+  aspect-ratio: 5 / 3;
+  padding: 2rem;
+  border-radius: 0.7rem;
+  font-size: clamp(1.2rem, 1.2vw, 1.6rem);
   font-weight: 700;
   text-transform: uppercase;
+  & .value {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 2.074rem;
+    text-transform: none;
+  }
 }
 
 .panel img {
-  width: 3.2rem;
-  display: flex;
+  width: clamp(2.7rem, 3vw, 3.7rem);
 }
 
-/* Seletores de ID: */
+/* SELETORES DE LINKS */
+/* unvisited link */
+a:link {
+  color: white;
+}
 
-#logoheader1 {
-  /*Oculta legenda do LOGO no cabeçalho da página WEB*/
-  display: none;
+/* visited link */
+a:visited {
+  color: whitesmoke;
+}
+
+/* mouse over link */
+a:hover {
+  color: #303030;
+  font-weight: bold;
+}
+
+/* selected link */
+a:active {
+  color: #0275b8;
+}
+
+@media (min-width: 600px) {
+  .panels {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .panels {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .panels {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: radial-gradient(#00000008 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
 }

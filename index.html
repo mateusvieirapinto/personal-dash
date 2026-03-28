@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>NOCview PD</title>
+    <title>Personal Panel</title>
   </head>
   <body>
     <main>
@@ -15,57 +15,59 @@
             src="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-hostgator-brasil-v1-0-2%2F882%2F1979882%2FbqYSLXza%2F19fc5a42f591445aad365e5fe3af0768&methods=resize%2C500%2C5000"
             alt="Logotipo NOCview"
           />
-          <figcaption id="logoheader1">Logotipo da NOCview</figcaption>
         </figure>
-        <div></div>
-        <div class="header-title">
-          <h1>Painel de Monitoramento Pessoal</h1>
-        </div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <nav class="navegacao-superior-direita">
+          <a href="#"><li>Sobre</li></a>
+          <a href="#"><li>Produtos</li></a>
+          <a href="#"><li>Contato</li></a>
+        </nav>
       </header>
+      <section class="title">
+        <h1>
+          Painel de Monitoramento Pessoal
+          <span class="span-h1"><sub>developed by NOCview</sub></span>
+        </h1>
+      </section>
       <section class="panels">
-        <div class="panel panel-0">
-          <img src="./assets/icons/verao.svg" alt="Ícone Calendário" />Previsão
-          do Tempo
-        </div>
-        <div class="panel panel-1">
-          <img src="./assets/icons/relogio.svg" alt="Ícone Calendário" />Horas
-          Dormidas
-        </div>
-        <div class="panel panel-2">
-          <img src="./assets/icons/fitness.svg" alt="Ícone Calendário" />Treinos
-          na Semana
-        </div>
-        <div class="panel panel-3">
-          <img src="./assets/icons/documento.svg" alt="Ícone Calendário" />Meta
-          de Leitura
-        </div>
-        <div class="panel panel-4">
-          <img
-            src="./assets/icons/calendario.svg"
-            alt="Ícone Calendário"
-          />Agenda
+        <div class="panel panel0">
+          <img src="./assets/icons/verao.svg" />Previsão do Tempo
+          <div class="value">
+            <span class="temp-max"><sup>▲32ºC</sup></span>
+            <span class="temp-min"><sub>▼22ºC</sub></span>
+          </div>
         </div>
 
-        <div class="panel panel-5">
-          <img src="./assets/icons/humor.svg" alt="Ícone Calendário" />Humor do
-          Dia
+        <div class="panel panel1">
+          <img src="./assets/icons/relogio.svg" />Horas Dormidas
+          <div class="value">7h<sub>20min</sub></div>
         </div>
-        <div class="panel panel-6">
-          <img src="./assets/icons/dolar.svg" alt="Ícone Calendário" />Meta
-          Finaceira
+        <div class="panel panel2">
+          <img src="./assets/icons/fitness.svg" />Treinos na Semana
+          <div class="value">5</sub></div>
         </div>
-        <div class="panel panel-7">
-          <img
-            src="./assets/icons/lembrete.svg"
-            alt="Ícone Calendário"
-          />Lembrete
+        <div class="panel panel3">
+          <img src="./assets/icons/documento.svg" />Meta de Leitura
+          <div class="value">1h/<sub>dia</sub></div>
+        </div>
+        <div class="panel panel4">
+          <img src="./assets/icons/calendario.svg" />Agenda
+          <div class="value">Sem agendamentos</sub></div>
+        </div>
+        <div class="panel panel5">
+          <img src="./assets/icons/humor.svg" />Humor do Dia
+          <div class="value">Animado</div>
+        </div>
+        <div class="panel panel6">
+          <img src="./assets/icons/dolar.svg" />Meta Finaceira
+          <div class="value">R$500<sub>,00</sub></div>
+        </div>
+        <div class="panel panel7">
+          <img src="./assets/icons/lembrete.svg" />Lembrete
+          <div class="value">Só depende de VOCÊ!</sub></div>
         </div>
       </section>
     </main>
+    <footer></footer>
     <script src="app.js"></script>
   </body>
 </html>
