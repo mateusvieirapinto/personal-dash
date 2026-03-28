@@ -28,7 +28,7 @@ body {
 
 /* SELETORES DE ELEMENTOS MAIS ESPECÍFICOS*/
 h1 {
-  padding: 0 2rem;
+  padding: 0 1rem;
   font-size: clamp(1.42rem, 3vw, 2.3rem);
   text-transform: uppercase;
   font-weight: 500;
@@ -71,7 +71,7 @@ header {
 
 .title {
   background-color: #0275b8;
-  padding: 1rem;
+  padding: 1rem 0;
   border-radius: 0 0 0.33rem 0.33rem;
   & span {
     text-transform: lowercase;
@@ -87,7 +87,7 @@ header {
   grid-template-columns: repeat(1, 1fr);
   margin: 0 1rem;
   gap: 1rem;
-  padding-top: 1.5rem;
+  padding: 1.5rem 0;
   /* & .panel0 {
     grid-column: 2 / 2; */
   position: relative;
@@ -147,6 +147,9 @@ a:active {
 @media (max-width: 600px) {
   .navegacao-superior-direita {
     display: none;
+  }
+  h1.span {
+    white-space: nowrap;
   }
 }
 
