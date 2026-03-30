@@ -17,13 +17,8 @@ body {
   font-size: 1.6rem;
   line-height: 1.4;
   color: #303030;
-  background: #ffffff;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(191, 244, 255, 1) 56%,
-    rgba(112, 231, 255, 0.473) 100%
-  );
+  background: #e8f1f3;
+  padding-bottom: 6rem;
 }
 
 /* SELETORES DE ELEMENTOS MAIS ESPECÍFICOS*/
@@ -37,13 +32,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #053d75;
-  color: #ffffff;
+  background-color: #14293d;
+  color: #e8f1f3;
 }
 
 /* SELETORES DE CLASSE: */
 .logoheader1 {
-  width: 23rem;
+  width: 20rem;
 }
 
 .navegacao-superior-direita {
@@ -52,7 +47,7 @@ header {
   gap: 2rem;
   justify-content: space-between;
   align-items: center;
-  color: #ffffff;
+  color: #e8f1f3;
   & a {
     text-decoration: none;
   }
@@ -64,62 +59,136 @@ header {
 
 .menu-h {
   margin: 0 1rem;
-  /* Filtro para converter preto para branco */
+  /* Filtro para converter o SVG preto para branco (I.A)*/
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
     contrast(100%);
 }
 
-.title {
-  background-color: #0275b8;
-  padding: 1rem 0;
-  border-radius: 0 0 0.33rem 0.33rem;
-  & span {
-    text-transform: lowercase;
-    font-size: 0.92rem;
-    font-weight: 400;
-  }
-}
 .panels {
   display: grid;
+  grid-auto-flow: dense;
   /* grid-auto-flow: row; */
   /* grid-auto-flow: column; */
-  justify-content: space-between;
-  grid-template-columns: repeat(1, 1fr);
+  /* justify-content: space-between; --> Removido pois estava quebrando o layout ao utilizar span 2 em algum card específico */
+  /* grid-template-columns: repeat(1, 1fr); */
   margin: 0 1rem;
-  gap: 1rem;
   padding: 1.5rem 0;
-  /* & .panel0 {
-    grid-column: 2 / 2; */
   position: relative;
 }
 
 .panel {
   display: flex;
   position: relative;
+  overflow: hidden;
   white-space: nowrap;
   gap: 2rem;
   align-items: flex-start;
   justify-content: space-between;
-  background-color: #f5f4f4;
-  color: #053d75;
-  box-shadow: 2px 2px 5px #333;
-  aspect-ratio: 5 / 3;
-  padding: 2rem;
-  border-radius: 0.7rem;
-  font-size: clamp(1.2rem, 1.2vw, 1.6rem);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fadeUp 0.4s ease;
+  color: #e8f1f3;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  /* opacity: 1; Fully opaque by default */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  aspect-ratio: 16 / 9;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  font-size: clamp(1rem, 1, 6rem, 2rem);
   font-weight: 700;
   text-transform: uppercase;
+  background-color: #247ba0;
+  border: solid 1px;
   & .value {
     position: absolute;
     bottom: 2rem;
     right: 2rem;
-    font-size: 2.074rem;
+    /* font-size: clamp(2.4rem, 2.8rem, 3.2rem); */
+    font-size: 2.8rem;
     text-transform: none;
   }
 }
 
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
 .panel img {
   width: clamp(2.7rem, 3vw, 3.7rem);
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
+    contrast(100%) drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.panel:hover {
+  opacity: 0.9;
+  text-shadow: 1px 1px 5px #000;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: scale(1.08); /*Começa levemente com zoom*/
+  transition: transform 0.4s ease;
+  filter: blur(2px);
+
+  z-index: 0;
+}
+
+.panel:hover::before {
+  transform: scale(1); /*AQUI aplica o Zoom OUT*/
+  filter: blur(0);
+}
+
+.panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.panel0:hover::before {
+  background-image: url(./assets/images/backgrounds/cards/blue-sky.jpg);
+}
+
+.panel1:hover::before {
+  background-image: url(./assets/images/backgrounds/cards/people-sleeping.jpg);
+}
+
+.panel2:hover::before {
+  background-image: url(./assets/images/backgrounds/cards/gym.jpg);
+}
+
+.panel3:hover::before {
+  background-image: url(./assets/images/backgrounds/cards/book.jpg);
+}
+
+.panel4:hover::before {
+  background-image: url(./assets/images/backgrounds/cards/planner.jpg);
+}
+
+.panel5:hover::before {
+  background-image: url(./assets/images/backgrounds/cards/humor.jpg);
+}
+
+.panel6:hover::before {
+  background-image: url(./assets/images/backgrounds/cards/money.jpg);
+}
+
+.panel7:hover::before {
+  background-image: url(./assets/images/backgrounds/cards/people-talk.jpg);
 }
 
 /* SELETORES DE LINKS */
@@ -130,7 +199,7 @@ a:link {
 
 /* visited link */
 a:visited {
-  color: whitesmoke;
+  color: #e8f1f3;
 }
 
 /* mouse over link */
@@ -141,10 +210,14 @@ a:hover {
 
 /* selected link */
 a:active {
-  color: #0275b8;
+  color: #016494;
 }
 
 @media (max-width: 600px) {
+  .panels {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
   .navegacao-superior-direita {
     display: none;
   }
@@ -154,12 +227,16 @@ a:active {
 }
 
 @media (min-width: 600px) {
+  .menu-h {
+    display: none;
+  }
   .panels {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
   }
-  .menu-h {
-    display: none;
+  .panel0 {
+    /* grid-column: span 2; */
+    /* aspect-ratio: 16 / 5; */
   }
 }
 
@@ -177,14 +254,17 @@ a:active {
   }
 }
 
-.panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image: radial-gradient(#00000008 1px, transparent 1px);
-  background-size: 3px 3px;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 0;
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #016394f1;
+  color: #e8f1f3;
+  text-align: center;
+  & span {
+    text-transform: lowercase;
+    font-size: 0.92rem;
+    font-weight: 400;
+  }
 }
