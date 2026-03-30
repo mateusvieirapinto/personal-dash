@@ -29,6 +29,7 @@ h1 {
   font-weight: 500;
 }
 header {
+  min-height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,6 +40,13 @@ header {
 /* SELETORES DE CLASSE: */
 .logoheader1 {
   width: 20rem;
+}
+
+.logoheader2 {
+  padding: 0;
+  margin: 0;
+  width: 5rem;
+  display: none;
 }
 
 .navegacao-superior-direita {
@@ -218,18 +226,24 @@ a:active {
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
   }
-  .navegacao-superior-direita {
+  .logoheader1 {
     display: none;
+  }
+  .logoheader2 {
+    display: block;
   }
   h1.span {
     white-space: nowrap;
   }
 }
 
-@media (min-width: 600px) {
-  .menu-h {
+@media (max-width: 900px) {
+  .navegacao-superior-direita {
     display: none;
   }
+}
+
+@media (min-width: 600px) {
   .panels {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
@@ -241,6 +255,9 @@ a:active {
 }
 
 @media (min-width: 900px) {
+  .menu-h {
+    display: none;
+  }
   .panels {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
